@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ngMessages demo</title>
+    <link rel='stylesheet' href='css/beyond.css' type='text/css' media='all' />
+    
+  </head>
+  <body ng-app="app" ng-controller="MainCtrl">
+
+    <form name="exampleForm" class="elegant-aero" ng-submit="signupForm()">
+      <label>First Name:</label>
+      <input type="text" name="userFirstName" ng-model="firstName" required />
+      <div ng-messages="exampleForm.userFirstName.$error">
+        <div ng-message="required">This field is required</div>
+      </div>
+
+      <label>Surname:</label>
+      <input type="text" name="userSurname" ng-model="surname" required />
+      <div ng-messages="exampleForm.userSurname.$error">
+        <div ng-message="required">This field is required</div>
+      </div>
+
+      <label>Email Address:</label>
+      <input type="email" name="userEmail" ng-model="email" required />
+      <div ng-messages="exampleForm.userEmail.$error">
+        <div ng-message="required">This field is required</div>
+        <div ng-message="email">Your email address is invalid</div>
+      </div>
+
+      <label>Confirm Email:</label>
+      <input type="email" name="userConfirmEmail" ng-model="confirmEmail" same-as="email" required/>
+      <div ng-messages="exampleForm.userConfirmEmail.$error">
+        <div ng-message="required">This field is required</div>
+        <div ng-message="same-as">Must match with Email</div>
+        
+      </div>
+      
+      <label>Gender:</label>
+      <input type="radio" name="gender" ng-model="color1" value="female" required/>Female 
+      <input type="radio" name="gender" ng-model="color1" value="male" required/>Male
+      <input type="radio" name="gender" ng-model="color1" value="Other" required/>Other
+      <div  ng-messages="exampleForm.gender.$error">
+        <div ng-message="required">This field is required</div>
+      </div>
+     
+<br> 
+     
+
+      <label>About you:</label>
+      <textarea type="text" name="aboutYou" class="form-control" rows="4" ng-model="message" ng-minlength="10" ng-maxlength="255" required></textarea>
+      <div ng-messages="exampleForm.aboutYou.$error">
+        <div ng-message="required">This field is required</div>
+        <div ng-message="minlength">Message must be over 10 characters</div>
+        <div ng-message="maxlength">Message must not exceed 255 characters</div>
+      </div>
+      
+       <label>DOB:</label>
+       <input type="date" name="dob" ng-model="userDob"
+       placeholder="yyyy-MM-dd" required />    
+       <div ng-messages="exampleForm.dob.$error">
+        <div ng-message="required">This field is required</div>
+      </div>
+<br>
+<br>
+  <label>Country:</label>
+  <select ng-model="country" name="country" ng-options="country.code as country.name for country in countries" required>
+    <option value=""></option>
+    <option ng-repeat="country in countries" value="{{country.code}}">{{country.name}}</option>
+  </select>
+  
+   <div  ng-messages="exampleForm.country.$error">
+        <div ng-message="required">This field is required</div>
+   </div>
+
+	<br>
+	<label>Company Name:</label>
+      <input type="text" name="userCompanyName" ng-model="companyName" required />
+      <div ng-messages="exampleForm.userCompanyName.$error">
+        <div ng-message="required">This field is required</div>
+      </div>
+      
+      
+      <label>Industry:</label>
+      <input type="text" name="userIndustry" ng-model="industry"  />
+
+
+	<label>Newsletter opt in:</label>
+	<input ng-model="newsLetter" type="checkbox" name="userNewsLetter"  /> I Accept 
+	<label>Privacy opt in:</label>
+	<input ng-model="privacy" type="checkbox" name="userprivacy" /> I Accept 
+	<label>Agree to terms and conditions:</label>
+	<input ng-model="agreement" type="checkbox" name="userAgreement" required /> I Accept      
+      <div ng-messages="exampleForm.userAgreement.$error">
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+       <div ng-message="required">Terms & Conditions needs to be agreed. </div>
+      </div>
+<br>
+   
+<div>      
+	
+	 <input type="submit" >
+	 <p>{{myTxt}}</p>
+</div>  
+       
+</form>       
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-messages.min.js"></script>
+    <script src="js/beyond.js"></script>
+    
+    
+  </body>
+</html>
