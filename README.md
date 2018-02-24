@@ -1,7 +1,7 @@
 # signup
 Beyond is creating a new portal for end users and for that we need to make a registration form so that people can sign up.
  
-The information we need to collect is as follows
+The information we need to collect is as follows<br>
  
 Name (Required)
 Surname (Required)
